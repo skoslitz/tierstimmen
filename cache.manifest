@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# This is a comment.
+# Cache manifest version 0.0.1
+# If you change the version number in this comment,
+# the cache manifest is no longer byte-for-byte
+# identical.
+
+CACHE:
+
+/images/esel.png
+/images/pig.png
+/images/brickwall.png
+/js/jquery.min.js
+/js/jquery.jplayer.min.js
+/sounds/esel.mp3
+/sounds/Haengebauchschwein.mp3
+/stylesheets/base.css
+/stylesheets/layout.css
+/stylesheets/skeleton.css
+/index.html

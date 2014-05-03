@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!-- <html> -->
+<html lang="de" manifest="cache.manifest"> 
+
 <head>
+
 
 	<!-- Basic Page Needs
   ================================================== -->
@@ -21,6 +20,12 @@
 	<link rel="stylesheet" href="stylesheets/base.css">
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<!-- JavaScript Libraries
+  ================================================== -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.jplayer.min.js"></script>
+
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,21 +49,79 @@
 
 	<div class="container">
 		<div class="six columns offset-by-one logo">
-			<h2 class="">Tierstimmen</h2>
+			<h2 class="">Tierstimmen<span style="color: green;">.</span></h2>
 		</div>
 			<div class="eleven columns offset-by-one">
 				<div class="content">
 					
-					<h3>Blogeintrag #1</h3>
+					<h3>Hausschwein</h3>
 					<p class="lead">
-						Dies dient der Demonstration.
+						Laute im Schlaf.
 					</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+					<div id="jquery_jplayer"></div>
+
+					<img id="playSchwein" src="images/pig.png">
+					<div id="schwein"></div>
+					
+					<hr>
+
+					<h3>Hausesel</h3>
+					<p class="lead">
+						Rufreihe.
+					</p>
+					<div id="jquery_jplayer"></div>
+
+					<img id="playesel" src="images/esel.png">
+					<div id="esel"></div>
+					
 				</div>
 			</div>
 
 	</div><!-- container -->
+
+	<!-- JS inits
+================================================== -->
+	<script type="text/javascript">
+	$(document).ready(function() { 
+
+		$('#playSchwein').click(function(){
+
+			$('#schwein').jPlayer( {
+				ready: function() { // The $.jPlayer.event.ready event
+					$(this).jPlayer("setMedia", { // Set the media
+						mp3: "sounds/Haengebauchschwein.mp3"
+					}).jPlayer("play"); // Attempt to auto play the media
+				},
+				ended: function() { // The $.jPlayer.event.ended event
+   					$(this).jPlayer("destroy"); // stop the media
+  				},
+				supplied: "mp3"
+			});
+			// $("#schwein").jPlayer("destroy");
+
+		});
+
+		$('#playesel').click(function(){
+
+			$('#esel').jPlayer( {
+				ready: function() { // The $.jPlayer.event.ready event
+					$(this).jPlayer("setMedia", { // Set the media
+						mp3: "sounds/esel.mp3"
+					}).jPlayer("play"); // Attempt to auto play the media
+				},
+				ended: function() { // The $.jPlayer.event.ended event
+   					$(this).jPlayer("destroy"); // stop the media
+
+  				},
+				supplied: "mp3"
+			});
+
+		});
+
+
+	 });
+
+	</script>
 
 
 <!-- End Document
